@@ -8,25 +8,25 @@ namespace Clases
 {
     public class Arbol
     {
-        public Nodo raiz_principal = null;
+        public NodoArbol raiz_principal = null;
 
-        private void insertar(ref Nodo raiz, Vehiculo d)
+        private void insertar(ref NodoArbol raiz, Tarea d)
         {
             if (raiz == null)
             {
-                Nodo nuevo = new Nodo();
+                NodoArbol nuevo = new NodoArbol();
                 nuevo.dato = d;
 
                 raiz = nuevo;
-                Console.WriteLine($"Vehiculo con placa nr {d.Placa} registrado correctamente!");
+                Console.WriteLine($"Vehiculo con placa nr {d.Prioridad} registrado correctamente!");
             }
             else
             {
-                if (d.Placa < raiz.dato.Placa)
+                if (d.Prioridad < raiz.dato.Prioridad)
                 {
                     insertar(ref raiz.izq, d);
                 }
-                else if (d.Placa > raiz.dato.Placa)
+                else if (d.Prioridad > raiz.dato.Prioridad)
                 {
                     insertar(ref raiz.der, d);
                 }
@@ -36,12 +36,12 @@ namespace Clases
                 }
             }
         }
-        public void Insertar(Vehiculo d)
+        public void Insertar(Tarea d)
         {
             insertar(ref raiz_principal, d);
         }
 
-        private void dibujar(Nodo raiz, int nivel)
+        private void dibujar(NodoArbol raiz, int nivel)
         {
             //D-R-I
             if (raiz != null)
@@ -59,7 +59,7 @@ namespace Clases
         {
             dibujar(raiz_principal, 0);
         }
-        private void inOrden(Nodo raiz)
+        private void inOrden(NodoArbol raiz)
         {
             if (raiz != null)
             {
@@ -74,7 +74,7 @@ namespace Clases
             inOrden(raiz_principal);
         }
 
-        private void buscar(Nodo raiz, int placa)
+        private void buscar(NodoArbol raiz, int placa)
         {
             if (raiz == null)
             {
@@ -82,11 +82,11 @@ namespace Clases
             }
             else
             {
-                if (placa < raiz.dato.Placa)
+                if (placa < raiz.dato.Prioridad)
                 {
                     buscar(raiz.izq, placa);
                 }
-                else if (placa > raiz.dato.Placa)
+                else if (placa > raiz.dato.Prioridad)
                 {
                     buscar(raiz.der, placa);
                 }
@@ -101,7 +101,7 @@ namespace Clases
         {
             buscar(raiz_principal, d);
         }
-        private void eliminar(ref Nodo raiz, int placa)
+        private void eliminar(ref NodoArbol raiz, int placa)
         {
             if (raiz == null)
             {
@@ -109,11 +109,11 @@ namespace Clases
             }
             else
             {
-                if (placa < raiz.dato.Placa)
+                if (placa < raiz.dato.Prioridad)
                 {
                     eliminar(ref raiz.izq, placa);
                 }
-                else if (placa > raiz.dato.Placa)
+                else if (placa > raiz.dato.Prioridad)
                 {
                     eliminar(ref raiz.der, placa);
                 }
@@ -128,9 +128,9 @@ namespace Clases
                         //des. izq
                         if (raiz.izq != null)
                         {
-                            Nodo temp = BuscarMayor(raiz.izq);
+                            NodoArbol temp = BuscarMayor(raiz.izq);
 
-                            Vehiculo aux = temp.dato;
+                            Tarea aux = temp.dato;
                             temp.dato = raiz.dato;
                             raiz.dato = aux;
 
@@ -139,9 +139,9 @@ namespace Clases
                         else
                         {
                             //des. der
-                            Nodo temp = BuscarMenor(raiz.der);
+                            NodoArbol temp = BuscarMenor(raiz.der);
 
-                            Vehiculo aux = temp.dato;
+                            Tarea aux = temp.dato;
                             temp.dato = raiz.dato;
                             raiz.dato = aux;
 
@@ -155,7 +155,7 @@ namespace Clases
         {
             eliminar(ref raiz_principal, d);
         }
-        private Nodo BuscarMenor(Nodo raiz)
+        private NodoArbol BuscarMenor(NodoArbol raiz)
         {
             if (raiz.izq != null)
             {
@@ -167,7 +167,7 @@ namespace Clases
                 return raiz;
             }
         }
-        private Nodo BuscarMayor(Nodo raiz)
+        private NodoArbol BuscarMayor(NodoArbol raiz)
         {
             if (raiz.der != null)
             {

@@ -11,7 +11,7 @@ namespace Clases
         public Nodo frente = null;
         public Nodo final = null;
 
-        public void Encolar(string p)
+        public void Encolar(Tarea p)
         {
             //1. Crear nuevo nodo
             Nodo nuevo = new Nodo();
@@ -25,7 +25,7 @@ namespace Clases
             }
             else//PRIORIDAD=1 NO PRIORIDAD=0
             {
-                if (p.prioridad == 0)
+                if (p.Prioridad == 0)
                 { //que se encole al final 
                     final.sig = nuevo;
                     final = nuevo;
@@ -33,7 +33,7 @@ namespace Clases
                 else //PRIORIDAD=1
                 {
                     //LA COLA AUN NO TIENE PERSONAS CON PRIORIDAD 
-                    if (frente.dato.prioridad == 0)
+                    if (frente.dato.Prioridad == 0)
                     {
                         nuevo.sig = frente;
                         frente = nuevo;
@@ -42,7 +42,7 @@ namespace Clases
                     else
                     {
                         Nodo temp = frente;
-                        while (temp != null && temp.sig.dato.prioridad == 1)
+                        while (temp != null && temp.sig.dato.Prioridad == 1)
                         {
                             temp = temp.sig;
                         }
@@ -54,11 +54,11 @@ namespace Clases
                 }
             }
         }
-        public Persona Desencolar()
+        public Tarea Desencolar()
         {
             if (frente != null)
             {
-                Persona p = frente.dato;
+                Tarea p = frente.dato;
                 frente = frente.sig;
                 return p;
             }

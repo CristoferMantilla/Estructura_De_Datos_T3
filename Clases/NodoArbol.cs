@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Clases
 {
-    public class Nodo
+    public class NodoArbol
     {
         public Tarea dato;
-        public Nodo sig = null;
-        public Nodo ant = null;
+        public NodoArbol izq = null;
+        public NodoArbol der = null;
     }
 }

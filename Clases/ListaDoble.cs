@@ -12,7 +12,7 @@ namespace Clases
             public Nodo primero = null;
             public Nodo ultimo = null;
 
-            public void Insertar(string d)
+            public void Insertar(Tarea d)
             {
                 Nodo nuevo = new Nodo();
                 nuevo.dato = d;
@@ -46,7 +46,7 @@ namespace Clases
                     temp = temp.ant;
                 }
             }
-            public void eliminar(string elim)
+            public void eliminar(Tarea elim)
             {
                 Nodo temp = primero;
                 while (temp != null)
