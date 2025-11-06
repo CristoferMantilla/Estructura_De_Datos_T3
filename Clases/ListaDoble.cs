@@ -8,8 +8,7 @@ namespace Clases
 {
     public class ListaDoble
     {
-        public class listaDoble
-        {
+
             public Nodo primero = null;
             public Nodo ultimo = null;
 
@@ -77,4 +76,4 @@ namespace Clases
             }
         }
     }
-}
+
