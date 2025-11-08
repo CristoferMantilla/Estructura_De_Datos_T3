@@ -42,8 +42,14 @@
             this.btnEjecutar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
+            this.gbVista = new System.Windows.Forms.GroupBox();
+            this.lstLista = new System.Windows.Forms.ListBox();
+            this.lblLista = new System.Windows.Forms.Label();
+            this.lblCola = new System.Windows.Forms.Label();
+            this.lstCola = new System.Windows.Forms.ListBox();
             this.gbNueva.SuspendLayout();
             this.gbAcciones.SuspendLayout();
+            this.gbVista.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbNueva
@@ -174,11 +180,61 @@
             this.btnConsultar.Text = "Consultar tareas";
             this.btnConsultar.UseVisualStyleBackColor = true;
             // 
+            // gbVista
+            // 
+            this.gbVista.Controls.Add(this.lstCola);
+            this.gbVista.Controls.Add(this.lblCola);
+            this.gbVista.Controls.Add(this.lblLista);
+            this.gbVista.Controls.Add(this.lstLista);
+            this.gbVista.Location = new System.Drawing.Point(10, 250);
+            this.gbVista.Name = "gbVista";
+            this.gbVista.Size = new System.Drawing.Size(940, 435);
+            this.gbVista.TabIndex = 9;
+            this.gbVista.TabStop = false;
+            this.gbVista.Text = "Visualización";
+            // 
+            // lstLista
+            // 
+            this.lstLista.FormattingEnabled = true;
+            this.lstLista.ItemHeight = 16;
+            this.lstLista.Location = new System.Drawing.Point(71, 55);
+            this.lstLista.Name = "lstLista";
+            this.lstLista.Size = new System.Drawing.Size(300, 340);
+            this.lstLista.TabIndex = 0;
+            // 
+            // lblLista
+            // 
+            this.lblLista.AutoSize = true;
+            this.lblLista.Location = new System.Drawing.Point(157, 30);
+            this.lblLista.Name = "lblLista";
+            this.lblLista.Size = new System.Drawing.Size(98, 16);
+            this.lblLista.TabIndex = 1;
+            this.lblLista.Text = "Lista de tareas:";
+            // 
+            // lblCola
+            // 
+            this.lblCola.AutoSize = true;
+            this.lblCola.Location = new System.Drawing.Point(621, 30);
+            this.lblCola.Name = "lblCola";
+            this.lblCola.Size = new System.Drawing.Size(127, 16);
+            this.lblCola.TabIndex = 2;
+            this.lblCola.Text = "Cola de pendientes:";
+            // 
+            // lstCola
+            // 
+            this.lstCola.FormattingEnabled = true;
+            this.lstCola.ItemHeight = 16;
+            this.lstCola.Location = new System.Drawing.Point(541, 55);
+            this.lstCola.Name = "lstCola";
+            this.lstCola.Size = new System.Drawing.Size(300, 340);
+            this.lstCola.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(966, 653);
+            this.ClientSize = new System.Drawing.Size(972, 710);
+            this.Controls.Add(this.gbVista);
             this.Controls.Add(this.gbAcciones);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dtpFecha);
@@ -194,6 +250,8 @@
             this.gbNueva.ResumeLayout(false);
             this.gbNueva.PerformLayout();
             this.gbAcciones.ResumeLayout(false);
+            this.gbVista.ResumeLayout(false);
+            this.gbVista.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,6 +273,11 @@
         private System.Windows.Forms.Button btnEjecutar;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.GroupBox gbVista;
+        private System.Windows.Forms.Label lblCola;
+        private System.Windows.Forms.Label lblLista;
+        private System.Windows.Forms.ListBox lstLista;
+        private System.Windows.Forms.ListBox lstCola;
     }
 }
 
