@@ -140,6 +140,7 @@
             this.btnAgregar.TabIndex = 7;
             this.btnAgregar.Text = "Agregar tarea";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // gbAcciones
             // 
@@ -161,6 +162,7 @@
             this.btnEjecutar.TabIndex = 9;
             this.btnEjecutar.Text = "Ejecutar tarea:";
             this.btnEjecutar.UseVisualStyleBackColor = true;
+            this.btnEjecutar.Click += new System.EventHandler(this.btnEjecutar_Click);
             // 
             // btnEliminar
             // 
@@ -179,6 +181,7 @@
             this.btnConsultar.TabIndex = 10;
             this.btnConsultar.Text = "Consultar tareas";
             this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // gbVista
             // 
