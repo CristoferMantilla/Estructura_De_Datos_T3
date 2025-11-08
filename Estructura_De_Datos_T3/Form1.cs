@@ -136,5 +136,20 @@ namespace Estructura_De_Datos_T3
                 temp = temp.sig;
             }
         }
+
+        private void txtID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPrioridad_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNombre_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
