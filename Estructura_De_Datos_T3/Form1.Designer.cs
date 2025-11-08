@@ -38,7 +38,12 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.gbAcciones = new System.Windows.Forms.GroupBox();
+            this.btnEjecutar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnConsultar = new System.Windows.Forms.Button();
             this.gbNueva.SuspendLayout();
+            this.gbAcciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbNueva
@@ -130,11 +135,51 @@
             this.btnAgregar.Text = "Agregar tarea";
             this.btnAgregar.UseVisualStyleBackColor = true;
             // 
+            // gbAcciones
+            // 
+            this.gbAcciones.Controls.Add(this.btnConsultar);
+            this.gbAcciones.Controls.Add(this.btnEliminar);
+            this.gbAcciones.Controls.Add(this.btnEjecutar);
+            this.gbAcciones.Location = new System.Drawing.Point(10, 160);
+            this.gbAcciones.Name = "gbAcciones";
+            this.gbAcciones.Size = new System.Drawing.Size(942, 80);
+            this.gbAcciones.TabIndex = 8;
+            this.gbAcciones.TabStop = false;
+            this.gbAcciones.Text = "Acciones";
+            // 
+            // btnEjecutar
+            // 
+            this.btnEjecutar.Location = new System.Drawing.Point(20, 30);
+            this.btnEjecutar.Name = "btnEjecutar";
+            this.btnEjecutar.Size = new System.Drawing.Size(150, 35);
+            this.btnEjecutar.TabIndex = 9;
+            this.btnEjecutar.Text = "Ejecutar tarea:";
+            this.btnEjecutar.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(190, 30);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(150, 35);
+            this.btnEliminar.TabIndex = 9;
+            this.btnEliminar.Text = "Eliminar tarea";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnConsultar
+            // 
+            this.btnConsultar.Location = new System.Drawing.Point(360, 30);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(170, 35);
+            this.btnConsultar.TabIndex = 10;
+            this.btnConsultar.Text = "Consultar tareas";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(966, 653);
+            this.Controls.Add(this.gbAcciones);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.lblFecha);
@@ -148,6 +193,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.gbNueva.ResumeLayout(false);
             this.gbNueva.PerformLayout();
+            this.gbAcciones.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,6 +211,10 @@
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.GroupBox gbAcciones;
+        private System.Windows.Forms.Button btnEjecutar;
+        private System.Windows.Forms.Button btnConsultar;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }
 
