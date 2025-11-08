@@ -28,13 +28,143 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.gbNueva = new System.Windows.Forms.GroupBox();
+            this.lblID = new System.Windows.Forms.Label();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.lblPrioridad = new System.Windows.Forms.Label();
+            this.cmbPrioridad = new System.Windows.Forms.ComboBox();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.gbNueva.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // gbNueva
+            // 
+            this.gbNueva.Controls.Add(this.lblNombre);
+            this.gbNueva.Controls.Add(this.txtID);
+            this.gbNueva.Location = new System.Drawing.Point(10, 10);
+            this.gbNueva.Name = "gbNueva";
+            this.gbNueva.Size = new System.Drawing.Size(942, 140);
+            this.gbNueva.TabIndex = 0;
+            this.gbNueva.TabStop = false;
+            this.gbNueva.Text = "Nueva tarea";
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(20, 30);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(20, 16);
+            this.lblID.TabIndex = 1;
+            this.lblID.Text = "ID";
+            // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(84, 17);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(120, 22);
+            this.txtID.TabIndex = 2;
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(226, 23);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(59, 16);
+            this.lblNombre.TabIndex = 2;
+            this.lblNombre.Text = "Nombre:";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(300, 25);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(200, 22);
+            this.txtNombre.TabIndex = 2;
+            // 
+            // lblPrioridad
+            // 
+            this.lblPrioridad.AutoSize = true;
+            this.lblPrioridad.Location = new System.Drawing.Point(520, 30);
+            this.lblPrioridad.Name = "lblPrioridad";
+            this.lblPrioridad.Size = new System.Drawing.Size(62, 16);
+            this.lblPrioridad.TabIndex = 3;
+            this.lblPrioridad.Text = "Prioridad";
+            // 
+            // cmbPrioridad
+            // 
+            this.cmbPrioridad.FormattingEnabled = true;
+            this.cmbPrioridad.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.cmbPrioridad.Location = new System.Drawing.Point(600, 25);
+            this.cmbPrioridad.Name = "cmbPrioridad";
+            this.cmbPrioridad.Size = new System.Drawing.Size(100, 24);
+            this.cmbPrioridad.TabIndex = 4;
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Location = new System.Drawing.Point(720, 30);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(82, 16);
+            this.lblFecha.TabIndex = 5;
+            this.lblFecha.Text = "Fecha límite:";
+            // 
+            // dtpFecha
+            // 
+            this.dtpFecha.Location = new System.Drawing.Point(820, 25);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(120, 22);
+            this.dtpFecha.TabIndex = 6;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(20, 70);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(150, 35);
+            this.btnAgregar.TabIndex = 7;
+            this.btnAgregar.Text = "Agregar tarea";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(966, 653);
+            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.dtpFecha);
+            this.Controls.Add(this.lblFecha);
+            this.Controls.Add(this.cmbPrioridad);
+            this.Controls.Add(this.lblPrioridad);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.lblID);
+            this.Controls.Add(this.gbNueva);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.gbNueva.ResumeLayout(false);
+            this.gbNueva.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.GroupBox gbNueva;
+        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label lblPrioridad;
+        private System.Windows.Forms.ComboBox cmbPrioridad;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
+        private System.Windows.Forms.Button btnAgregar;
     }
 }
 
