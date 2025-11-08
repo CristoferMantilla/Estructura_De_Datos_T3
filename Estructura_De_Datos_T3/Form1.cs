@@ -75,5 +75,66 @@ namespace Estructura_De_Datos_T3
             MostrarLista();
             MostrarCola();
         }
+
+        //BOTON ELIMINAR
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(txtID.Text);
+
+            Nodo temp = lista.primero;
+            while (temp != null)
+            {
+                if (temp.dato.ID == id)
+                {
+                    // Eliminar de lista
+                    lista.eliminar(temp.dato);
+
+                    // Eliminar del árbol
+                    arbol.Eliminar(temp.dato.Prioridad);
+
+                    // Reconstruir cola sin esa tarea
+                    Cola nueva = new Cola();
+                    Nodo c = cola.frente;
+                    while (c != null)
+                    {
+                        if (c.dato.ID != id)
+                        {
+                            nueva.Encolar(c.dato);
+                        }
+                        c = c.sig;
+                    }
+                    cola = nueva;
+
+                    MessageBox.Show("Tarea eliminada");
+                    break;
+                }
+                temp = temp.sig;
+            }
+            MostrarLista();
+            MostrarCola();
+        }
+
+        //METODOS AUXILIARES PARA REFRESCAR EL INTERFAZ
+        private void MostrarLista()
+        {
+            lstLista.Items.Clear();
+            Nodo temp = lista.primero;
+            while (temp != null)
+            {
+                lstLista.Items.Add(temp.dato.ToString());
+                temp = temp.sig;
+            }
+        }
+
+        private void MostrarCola()
+        {
+            lstCola.Items.Clear();
+            Nodo temp = cola.frente;
+            while (temp != null)
+            {
+                lstCola.Items.Add(temp.dato.ToString());
+                temp = temp.sig;
+            }
+        }
     }
 }

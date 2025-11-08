@@ -42,7 +42,7 @@ namespace Clases
                     else
                     {
                         Nodo temp = frente;
-                        while (temp != null && temp.sig.dato.Prioridad == 1)
+                        while (temp.sig != null && temp.sig.dato.Prioridad <= nuevo.dato.Prioridad)
                         {
                             temp = temp.sig;
                         }

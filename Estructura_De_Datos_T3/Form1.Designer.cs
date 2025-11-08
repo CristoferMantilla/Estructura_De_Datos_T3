@@ -172,6 +172,7 @@
             this.btnEliminar.TabIndex = 9;
             this.btnEliminar.Text = "Eliminar tarea";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnConsultar
             // 
@@ -248,7 +249,7 @@
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.gbNueva);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "GESTOR DE TAREAS";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.gbNueva.ResumeLayout(false);
             this.gbNueva.PerformLayout();
