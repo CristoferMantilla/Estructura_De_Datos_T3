@@ -24,7 +24,65 @@ namespace Estructura_De_Datos_T3
         //BOTON AGREGAR
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            bool ErrorID = false;
+
+            // Si está vacío, es un error
+            if (string.IsNullOrEmpty(txtID.Text))
+            {
+                ErrorID = true;
+            }
+            else
+            {
+                // Revisar cada caracter
+                foreach (char c in txtID.Text)
+                {
+                    // Tu condición original (58 y 48) estaba al revés y usando || (OR)
+                    // cuando debía ser para encontrar errores.
+                    // Un error es si el caracter es MENOR que '0' (48) O MAYOR que '9' (57)
+                    if (c < 48 || c > 57)
+                    {
+                        ErrorID = true;
+                        break; // Encontramos un caracter inválido, salimos del bucle
+                    }
+                }
+            }
+
+            // Si se encontró un error...
+            if (ErrorID)
+            {
+                MessageBox.Show("El ID solo deben de ser enteros ", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             int id = int.Parse(txtID.Text);
+            bool ErrorNombreDtarea = false;
+
+            // Si está vacío, es un error
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                ErrorNombreDtarea = true;
+            }
+            else
+            {
+                // Revisar cada caracter
+                foreach (char NombreDtarea in txtNombre.Text)
+                {
+                    // Tu condición original (58 y 48) estaba al revés y usando || (OR)
+                    // cuando debía ser para encontrar errores.
+                    // Un error es si el caracter es MENOR que '0' (48) O MAYOR que '9' (57)
+                    if (!((NombreDtarea > 64 && NombreDtarea < 91) || (NombreDtarea > 96 && NombreDtarea < 123)))
+                    {
+                        ErrorNombreDtarea = true;
+                        break; // Encontramos un caracter inválido, salimos del bucle
+                    }
+                }
+            }
+
+            // Si se encontró un error...
+            if (ErrorNombreDtarea)
+            {
+                MessageBox.Show("El Nombre de la tarea solo debe contener caracteres ", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             string nombre = txtNombre.Text;
             int prioridad = int.Parse(cmbPrioridad.SelectedItem.ToString());
             DateTime fecha = dtpFecha.Value;

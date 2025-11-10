@@ -79,11 +79,11 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(221, 58);
+            this.lblNombre.Location = new System.Drawing.Point(142, 65);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(102, 25);
+            this.lblNombre.Size = new System.Drawing.Size(199, 25);
             this.lblNombre.TabIndex = 2;
-            this.lblNombre.Text = "Nombre:";
+            this.lblNombre.Text = "Nombre de Tarea:";
             // 
             // txtID
             // 
@@ -121,7 +121,7 @@
             // 
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Gill Sans Ultra Bold Condensed", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.Location = new System.Drawing.Point(221, 130);
+            this.lblFecha.Location = new System.Drawing.Point(142, 130);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(114, 25);
             this.lblFecha.TabIndex = 5;
@@ -131,7 +131,7 @@
             // 
             this.lblID.AutoSize = true;
             this.lblID.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.Location = new System.Drawing.Point(221, 17);
+            this.lblID.Location = new System.Drawing.Point(142, 23);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(48, 29);
             this.lblID.TabIndex = 1;
@@ -163,7 +163,7 @@
             // 
             this.lblPrioridad.AutoSize = true;
             this.lblPrioridad.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrioridad.Location = new System.Drawing.Point(221, 94);
+            this.lblPrioridad.Location = new System.Drawing.Point(142, 94);
             this.lblPrioridad.Name = "lblPrioridad";
             this.lblPrioridad.Size = new System.Drawing.Size(114, 25);
             this.lblPrioridad.TabIndex = 3;
