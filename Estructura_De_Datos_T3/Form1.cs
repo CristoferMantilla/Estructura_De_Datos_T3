@@ -20,11 +20,6 @@ namespace Estructura_De_Datos_T3
         {
             InitializeComponent();
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
         //BOTON AGREGAR
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -43,7 +38,6 @@ namespace Estructura_De_Datos_T3
             MessageBox.Show("Tarea agregada correctamente");
 
             MostrarLista();
-            MostrarCola();
         }
 
         //BOTON EJECUTAR
@@ -61,7 +55,6 @@ namespace Estructura_De_Datos_T3
                 arbol.Eliminar(t.Prioridad);
 
                 MostrarLista();
-                MostrarCola();
             }
             else
             {
@@ -73,13 +66,20 @@ namespace Estructura_De_Datos_T3
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             MostrarLista();
-            MostrarCola();
         }
 
         //BOTON ELIMINAR
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            // 1. Validar si la lista está vacía
+            if (lista.primero == null)
+            {
+                MessageBox.Show("No hay tareas registradas. Primero ingrese una tarea.");
+                return; // salir del método
+            }
+
             int id = int.Parse(txtID.Text);
+            bool encontrado = false;
 
             Nodo temp = lista.primero;
             while (temp != null)
@@ -106,12 +106,17 @@ namespace Estructura_De_Datos_T3
                     cola = nueva;
 
                     MessageBox.Show("Tarea eliminada");
+                    encontrado = true;
                     break;
                 }
                 temp = temp.sig;
             }
             MostrarLista();
-            MostrarCola();
+            // 2. Si recorrió toda la lista y no encontró el ID
+            if (encontrado == false)
+            {
+                MessageBox.Show("No se encontró ninguna tarea con ese ID.");
+            }
         }
 
         //METODOS AUXILIARES PARA REFRESCAR EL INTERFAZ
@@ -128,28 +133,23 @@ namespace Estructura_De_Datos_T3
 
         private void MostrarCola()
         {
-            lstCola.Items.Clear();
+            lstLista.Items.Clear();
             Nodo temp = cola.frente;
             while (temp != null)
             {
-                lstCola.Items.Add(temp.dato.ToString());
+                lstLista.Items.Add(temp.dato.ToString());
                 temp = temp.sig;
             }
         }
 
-        private void txtID_TextChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            MostrarLista();
         }
 
-        private void lblPrioridad_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void lblNombre_Click(object sender, EventArgs e)
-        {
-
+            MostrarCola();
         }
     }
 }

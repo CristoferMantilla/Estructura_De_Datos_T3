@@ -13,45 +13,63 @@ namespace Clases
 
         public void Encolar(Tarea p)
         {
-            //1. Crear nuevo nodo
+            // 1. Crear el nuevo nodo
             Nodo nuevo = new Nodo();
             nuevo.dato = p;
+            nuevo.sig = null; // Es buena práctica inicializarlo en null
 
-            //2. Ubicarlo
+            // -----------------------------------------------------------------
+            // CASO 1: La cola está vacía
+            // -----------------------------------------------------------------
             if (frente == null)
             {
                 frente = nuevo;
                 final = nuevo;
+                return; // Salir del método, ya terminamos
             }
-            else//PRIORIDAD=1 NO PRIORIDAD=0
+
+            // -----------------------------------------------------------------
+            // CASO 2: El nuevo nodo tiene MÁS prioridad (un número MENOR) que el 'frente'
+            // Debe ir al inicio de la cola.
+            // -----------------------------------------------------------------
+            if (p.Prioridad < frente.dato.Prioridad)
             {
-                if (p.Prioridad == 0)
-                { //que se encole al final 
-                    final.sig = nuevo;
-                    final = nuevo;
-                }
-                else //PRIORIDAD=1
-                {
-                    //LA COLA AUN NO TIENE PERSONAS CON PRIORIDAD 
-                    if (frente.dato.Prioridad == 0)
-                    {
-                        nuevo.sig = frente;
-                        frente = nuevo;
-                    }
-                    //LA COLA TIENE AL NEMOS 1 PERSONA CON PRIORIDAD YA ENCOLADA 
-                    else
-                    {
-                        Nodo temp = frente;
-                        while (temp.sig != null && temp.sig.dato.Prioridad <= nuevo.dato.Prioridad)
-                        {
-                            temp = temp.sig;
-                        }
-                        //insertar el nuevo nodo
-                        nuevo.sig = temp.sig;
-                        temp.sig = nuevo;
-                        // validar 
-                    }
-                }
+                nuevo.sig = frente; // El nuevo apunta al antiguo 'frente'
+                frente = nuevo;     // El 'frente' ahora es el nuevo nodo
+                return; // Salir del método
+            }
+
+            // -----------------------------------------------------------------
+            // CASO 3: Insertar en el medio o al final
+            // Buscamos el lugar correcto para insertar.
+            // -----------------------------------------------------------------
+
+            // 'temp' recorrerá la lista. Inicia en 'frente'.
+            Nodo temp = frente;
+
+            // Avanzamos 'temp' MIENTRAS el siguiente nodo exista Y
+            // la prioridad del siguiente nodo sea MENOR O IGUAL a la del nuevo.
+            // Esto asegura que nos detenemos JUSTO ANTES de un nodo con prioridad MAYOR
+            // o al final de la lista.
+            while (temp.sig != null && temp.sig.dato.Prioridad <= p.Prioridad)
+            {
+                temp = temp.sig;
+            }
+
+            // Ahora 'temp' es el nodo *anterior* al punto de inserción.
+
+            // Insertamos el 'nuevo' nodo después de 'temp'
+            nuevo.sig = temp.sig;
+            temp.sig = nuevo;
+
+            // -----------------------------------------------------------------
+            // CASO 4: Actualizar el puntero 'final'
+            // Si 'nuevo.sig' es null, significa que lo insertamos al final.
+            // Por lo tanto, 'nuevo' es el nuevo 'final'.
+            // -----------------------------------------------------------------
+            if (nuevo.sig == null)
+            {
+                final = nuevo;
             }
         }
         public Tarea Desencolar()

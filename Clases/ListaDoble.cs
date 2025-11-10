@@ -49,30 +49,55 @@ namespace Clases
         public void eliminar(Tarea elim)
         {
             Nodo temp = primero;
+
             while (temp != null)
             {
                 if (temp.dato == elim)
                 {
+                    // Caso 1: único elemento en la lista
+                    if (temp == primero && temp == ultimo)
+                    {
+                        primero = null;
+                        ultimo = null;
+                        return;
+                    }
+
+                    // Caso 2: eliminar el primero (hay más elementos)
                     if (temp == primero)
                     {
                         primero = primero.sig;
-                        primero.ant = null;
+                        // validar que primero no sea null antes de acceder a ant
+                        if (primero != null)
+                        {
+                            primero.ant = null;
+                        }
+                        return;
                     }
-                    else if (temp == ultimo)
+
+                    // Caso 3: eliminar el último (hay más elementos)
+                    if (temp == ultimo)
                     {
                         ultimo = ultimo.ant;
-                        ultimo.sig = null;
+                        // validar que último no sea null antes de acceder a sig
+                        if (ultimo != null)
+                        {
+                            ultimo.sig = null;
+                        }
+                        return;
                     }
-                    else
-                    {
-                        temp.ant.sig = temp.sig;
-                        temp.sig = temp.ant;
-                    }
+
+                    // Caso 4: eliminar en medio (enlaces cruzados correctos)
+                    // enlazar el anterior con el siguiente
+                    temp.ant.sig = temp.sig;
+                    temp.sig.ant = temp.ant;
                     return;
                 }
+
                 temp = temp.sig;
             }
-            Console.Write("ERROR");
+
+            // Si terminó el while y no encontró
+            Console.WriteLine("No se encontró la tarea a eliminar.");
         }
     }
 }
