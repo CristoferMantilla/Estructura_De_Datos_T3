@@ -140,8 +140,14 @@ namespace Estructura_De_Datos_T3
                 MessageBox.Show("No hay tareas registradas. Primero ingrese una tarea.");
                 return; // salir del método
             }
-
+            // Validar que el ID no esté vacío
+            if (txtID.Text == "")
+            {
+                MessageBox.Show("Ingrese el ID a eliminar", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             int id = int.Parse(txtID.Text);
+
             bool encontrado = false;
 
             Nodo temp = lista.primero;
