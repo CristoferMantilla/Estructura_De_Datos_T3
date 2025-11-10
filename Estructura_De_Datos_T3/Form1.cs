@@ -24,69 +24,66 @@ namespace Estructura_De_Datos_T3
         //BOTON AGREGAR
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            bool ErrorID = false;
-
-            // Si está vacío, es un error
-            if (string.IsNullOrEmpty(txtID.Text))
+            // Validar que el ID no esté vacío
+            if (txtID.Text == "")
             {
-                ErrorID = true;
-            }
-            else
-            {
-                // Revisar cada caracter
-                foreach (char c in txtID.Text)
-                {
-                    // Tu condición original (58 y 48) estaba al revés y usando || (OR)
-                    // cuando debía ser para encontrar errores.
-                    // Un error es si el caracter es MENOR que '0' (48) O MAYOR que '9' (57)
-                    if (c < 48 || c > 57)
-                    {
-                        ErrorID = true;
-                        break; // Encontramos un caracter inválido, salimos del bucle
-                    }
-                }
-            }
-
-            // Si se encontró un error...
-            if (ErrorID)
-            {
-                MessageBox.Show("El ID solo deben de ser enteros ", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ingrese un ID", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            // Validar que el ID solo tenga números
+            int i = 0;
+            while (i < txtID.Text.Length)
+            {
+                char c = txtID.Text[i];
+                if (c < '0' || c > '9')
+                {
+                    MessageBox.Show("El ID debe solo contener números", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                i = i + 1;
+            }
+
             int id = int.Parse(txtID.Text);
-            bool ErrorNombreDtarea = false;
 
-            // Si está vacío, es un error
-            if (string.IsNullOrEmpty(txtNombre.Text))
+            // Validar que el ID no se repita en la lista
+            Nodo temp = lista.primero;
+            while (temp != null)
             {
-                ErrorNombreDtarea = true;
-            }
-            else
-            {
-                // Revisar cada caracter
-                foreach (char NombreDtarea in txtNombre.Text)
+                if (temp.dato.ID == id)
                 {
-                    // Tu condición original (58 y 48) estaba al revés y usando || (OR)
-                    // cuando debía ser para encontrar errores.
-                    // Un error es si el caracter es MENOR que '0' (48) O MAYOR que '9' (57)
-                    if (!((NombreDtarea > 64 && NombreDtarea < 91) || (NombreDtarea > 96 && NombreDtarea < 123)))
-                    {
-                        ErrorNombreDtarea = true;
-                        break; // Encontramos un caracter inválido, salimos del bucle
-                    }
+                    MessageBox.Show("El ID ya existe", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
+                temp = temp.sig;
             }
 
-            // Si se encontró un error...
-            if (ErrorNombreDtarea)
+            // Validar que el Nombre no esté vacío
+            if (txtNombre.Text == "")
             {
-                MessageBox.Show("El Nombre de la tarea solo debe contener caracteres ", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ingrese un nombre de tarea", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            // Validar que el Nombre solo tenga letras
+            int j = 0;
+            while (j < txtNombre.Text.Length)
+            {
+                char c = txtNombre.Text[j];
+                if (!((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')))
+                {
+                    MessageBox.Show("El Nombre solo debe contener letras", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                j = j + 1;
+            }
+
+            // Obtener los demás datos
             string nombre = txtNombre.Text;
             int prioridad = int.Parse(cmbPrioridad.SelectedItem.ToString());
             DateTime fecha = dtpFecha.Value;
 
+            // Crear la tarea
             Tarea t = new Tarea(id, nombre, prioridad, fecha);
 
             // Insertar en estructuras
@@ -96,7 +93,14 @@ namespace Estructura_De_Datos_T3
 
             MessageBox.Show("Tarea agregada correctamente");
 
+            // Refrescar visualización
             MostrarLista();
+
+            // Limpiar campos
+            txtID.Text = "";
+            txtNombre.Text = "";
+            txtID.Focus();
+
         }
 
         //BOTON EJECUTAR

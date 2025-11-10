@@ -39,6 +39,7 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblPrioridad = new System.Windows.Forms.Label();
             this.gbAcciones = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEjecutar = new System.Windows.Forms.Button();
             this.gbVista = new System.Windows.Forms.GroupBox();
@@ -47,7 +48,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.lblLista = new System.Windows.Forms.Label();
             this.lstLista = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.gbNueva.SuspendLayout();
             this.gbAcciones.SuspendLayout();
             this.gbVista.SuspendLayout();
@@ -79,7 +79,7 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(142, 65);
+            this.lblNombre.Location = new System.Drawing.Point(142, 60);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(199, 25);
             this.lblNombre.TabIndex = 2;
@@ -87,7 +87,7 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(356, 21);
+            this.txtID.Location = new System.Drawing.Point(366, 17);
             this.txtID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(201, 31);
@@ -96,7 +96,7 @@
             // dtpFecha
             // 
             this.dtpFecha.Font = new System.Drawing.Font("Arial Narrow", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFecha.Location = new System.Drawing.Point(355, 133);
+            this.dtpFecha.Location = new System.Drawing.Point(366, 130);
             this.dtpFecha.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(201, 22);
@@ -131,7 +131,7 @@
             // 
             this.lblID.AutoSize = true;
             this.lblID.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.Location = new System.Drawing.Point(142, 23);
+            this.lblID.Location = new System.Drawing.Point(142, 20);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(48, 29);
             this.lblID.TabIndex = 1;
@@ -145,7 +145,7 @@
             "1",
             "2",
             "3"});
-            this.cmbPrioridad.Location = new System.Drawing.Point(356, 95);
+            this.cmbPrioridad.Location = new System.Drawing.Point(366, 95);
             this.cmbPrioridad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbPrioridad.Name = "cmbPrioridad";
             this.cmbPrioridad.Size = new System.Drawing.Size(200, 26);
@@ -153,7 +153,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(356, 60);
+            this.txtNombre.Location = new System.Drawing.Point(366, 55);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(200, 31);
@@ -184,6 +184,15 @@
             this.gbAcciones.TabIndex = 8;
             this.gbAcciones.TabStop = false;
             this.gbAcciones.Text = "Ejecutar por prioridad";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(375, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(160, 26);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Eliminar por ID:";
             // 
             // btnEliminar
             // 
@@ -293,15 +302,6 @@
             this.lstLista.Name = "lstLista";
             this.lstLista.Size = new System.Drawing.Size(420, 290);
             this.lstLista.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(375, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 26);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Eliminar por ID:";
             // 
             // Form1
             // 
