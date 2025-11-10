@@ -22,11 +22,11 @@ namespace Clases
             }
             else
             {
-                if (d.Prioridad < raiz.dato.Prioridad)
+                if (d.ID < raiz.dato.ID)
                 {
                     insertar(ref raiz.izq, d);
                 }
-                else if (d.Prioridad > raiz.dato.Prioridad)
+                else if (d.ID > raiz.dato.ID)
                 {
                     insertar(ref raiz.der, d);
                 }

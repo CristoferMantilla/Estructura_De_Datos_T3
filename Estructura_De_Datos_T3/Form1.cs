@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -141,6 +142,23 @@ namespace Estructura_De_Datos_T3
                 temp = temp.sig;
             }
         }
+        // Mostrar tareas ordenadas por ID usando recorrido InOrden del árbol
+        private void MostrarOrdenadoPorID()
+        {
+            lstLista.Items.Clear();
+            MostrarInOrden(arbol.raiz_principal);
+        }
+
+        // Método recursivo auxiliar
+        private void MostrarInOrden(NodoArbol raiz)
+        {
+            if (raiz != null)
+            {
+                MostrarInOrden(raiz.izq);                  // primero izquierda
+                lstLista.Items.Add(raiz.dato.ToString());  // luego el nodo actual
+                MostrarInOrden(raiz.der);                  // finalmente derecha
+            }
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -150,6 +168,19 @@ namespace Estructura_De_Datos_T3
         private void button2_Click(object sender, EventArgs e)
         {
             MostrarCola();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            {
+                if (arbol.raiz_principal == null)
+                {
+                    MessageBox.Show("No hay tareas registradas. Primero ingrese una tarea.");
+                    return;
+                }
+
+                MostrarOrdenadoPorID();
+            }
         }
     }
 }
